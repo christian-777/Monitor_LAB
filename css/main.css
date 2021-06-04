@@ -1,3 +1,25 @@
+body, footer{
+	background-color:black;
+}
+.quadrado{
+	margin:4px;
+	margin-left:750px;
+	margin-right:100px;
+	margin-top:100px;
+	border-radius: 7px;
+	padding:30px;
+}
+.quadrado1{
+	
+	margin-right:750px;
+	margin-left:100px;
+	margin-top:100px;
+	border-radius: 7px;
+	padding:30px;
+	border-style: solid;
+	border-width: 1px;
+	
+}
 footer {
     position: fixed;
     height: 50px;
@@ -13,30 +35,30 @@ div{
 }
 
 a:link {
-    color: black;
+    color: white;
     font-weight:bold;
   }
   
   /* visited link */
   a:visited {
-    color: black;
+    color: white;
     font-weight:bold;
   }
   
   /* mouse over link */
   a:hover {
-    color: yellow;
+    color: white;
     font-weight:bold;
   }
 
   a.menu:hover {
-    color: green;
+    color: white;
     font-weight:bold;
   }
   
   /* selected link */
   a:active {
-    color: yellow;
+    color: white;
     font-weight:bold;
   }
 
