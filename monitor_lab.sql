@@ -46,10 +46,10 @@ INSERT INTO `adm` (`id_adm`, `email`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `nome` varchar(300) NOT NULL,
   `email` varchar(300) NOT NULL,
   `senha` varchar(32) NOT NULL,
