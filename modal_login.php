@@ -10,10 +10,10 @@
       <div class="modal-body">
 		<form>
 			<label for="email">E-mail:</label>
-			<input type="email" name="email_login" id="email_login" placeholder="Insira seu E-mail"/>
+			<input class="form-control" type="email" name="email_login" id="email_login" placeholder="Insira seu E-mail"/>
 			<br />
 			<label for="email">Senha:</label>
-			<input type="password" name="senha_login" id="senha_login" placeholder="Insira uma Senha"/>
+			<input class="form-control" type="password" name="senha_login" id="senha_login" placeholder="Insira uma Senha"/>
 			<div id="mensagem" style="color:red;"></div>
 		</form>
       </div>

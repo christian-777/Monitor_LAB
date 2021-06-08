@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 04-Jun-2021 às 02:56
+-- Data de Criação: 08-Jun-2021 às 04:26
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -42,6 +42,23 @@ CREATE TABLE IF NOT EXISTS `adm` (
 
 INSERT INTO `adm` (`id_adm`, `email`, `senha`) VALUES
 (1, 'christian.g@aluno.ifsp.edu.br', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `dados_a_monitorar`
+--
+
+CREATE TABLE IF NOT EXISTS `dados_a_monitorar` (
+  `id_dados_a_monitorar` int(11) NOT NULL DEFAULT '0',
+  `titulo` varchar(500) NOT NULL,
+  `dominio_ponte` varchar(500) NOT NULL,
+  `dominio_principal` varchar(500) NOT NULL,
+  `extencao_arquivo` varchar(10) NOT NULL,
+  `periodicidade` float NOT NULL,
+  `disponibilidade` int(11) NOT NULL,
+  PRIMARY KEY (`id_dados_a_monitorar`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
