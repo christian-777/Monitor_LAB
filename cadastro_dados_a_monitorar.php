@@ -2,7 +2,7 @@
 	include "cabecalho.php";
 ?>
 <div class="masthead">
-	<form class="container d-flex align-items-left flex-column" action="cadastrar_dados.php">
+	<form class="container d-flex align-items-left flex-column" action="cadastrar_dados.php" method="post">
 		<div class="">
 			<div class="form-row">
 				<div class="col-5">
@@ -48,6 +48,7 @@
 			<br />
 			<div id="mensagem"></div>
 			<br />
+			<input type="submit" value="teste"/>
 			<button type="button" id="cadastrar_dados" class="btn btn-primary">Cadastrar</button>
 			<button type="reset" id="limpar" class="btn btn-secondary">limpar</button>
 		</div>

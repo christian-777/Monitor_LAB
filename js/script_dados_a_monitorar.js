@@ -61,6 +61,7 @@ $(document).ready(function(){
 					 periodicidade: $("#periodicidade").val(),
 					 disponibilidade: $("#disponibilidade").val()
 					};
+					console.log(dados);
 					 
 		if($("#titulo").val()==""  && $("#dominio_ponte").val()=="" && $("#dominio_princial").val()=="" && $("#extencao").val()=="" && $("#periodicidade").val()=="" && $("#disponibilidade").val()==""){
 			$("#mensagem").html("insira os dados corretos!!");
