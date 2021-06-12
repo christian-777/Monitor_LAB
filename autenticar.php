@@ -1,4 +1,5 @@
 <?php
+	session_start();
     include "conexao.php";
     $email=$_POST["email"];
     $senha=$_POST["senha"];
@@ -19,8 +20,10 @@
         if(mysqli_num_rows($resultado) == 1) {
             
             $l = mysqli_fetch_assoc($resultado);
+			
+			$_SESSION["cargo"]=1;
 
-            header("Location: index_usuario.php");
+            header("Location: home.php");
         }
         mysqli_stmt_close($stmt);
         
@@ -29,7 +32,7 @@
         echo "Houve um erro na preparação da consulta SQL:".mysqli_error($con);
     }
 
-    $select="SELECT id_usuario FROM usuarios WHERE email=? and senha=?";
+    $select="SELECT id_usuario FROM usuario WHERE email=? and senha=?";
     if($stmt = mysqli_prepare($con, $select)) { 
 
         mysqli_stmt_bind_param($stmt, "ss", $email, $senha);
@@ -44,7 +47,9 @@
         if(mysqli_num_rows($resultado) == 1) {
             
             $l = mysqli_fetch_assoc($resultado);
-
+	
+			$_SESSION["cargo"]=2;
+	
             echo 1;
         }
         else {

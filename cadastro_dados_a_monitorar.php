@@ -2,7 +2,7 @@
 	include "cabecalho.php";
 ?>
 <div class="masthead">
-	<form class="container d-flex align-items-left flex-column" action="cadastrar_dados.php" method="post">
+	<form class="container d-flex align-items-left flex-column">
 		<div class="">
 			<div class="form-row">
 				<div class="col-5">
@@ -27,8 +27,8 @@
 			<br />
 			<div class="form-row">
 				<div class="col-5">
-					<label for="extencao">Extenção do Arquivo:</label>
-					<input type="text" name="extencao" id="extencao" class="form-control"/>
+					<label for="extencao">Extensão do Arquivo:</label>
+					<input type="text" name="extensao" id="extensao" class="form-control"/>
 				</div>
 			</div>
 			<br />
@@ -48,7 +48,6 @@
 			<br />
 			<div id="mensagem"></div>
 			<br />
-			<input type="submit" value="teste"/>
 			<button type="button" id="cadastrar_dados" class="btn btn-primary">Cadastrar</button>
 			<button type="reset" id="limpar" class="btn btn-secondary">limpar</button>
 		</div>

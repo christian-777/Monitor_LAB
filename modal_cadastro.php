@@ -28,7 +28,7 @@
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" id="cancelar_modal" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" id="cancelar_modal_cadastro" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button type="button" id="cadastrar" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>

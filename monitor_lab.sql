@@ -36,28 +36,22 @@ CREATE TABLE IF NOT EXISTS `adm` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Extraindo dados da tabela `adm`
---
-
-INSERT INTO `adm` (`id_adm`, `email`, `senha`) VALUES
-(1, 'christian.g@aluno.ifsp.edu.br', '12345');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dados_a_monitorar`
+-- Estrutura da tabela `monitoramento`
 --
 
-CREATE TABLE IF NOT EXISTS `dados_a_monitorar` (
-  `id_dados_a_monitorar` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE IF NOT EXISTS `monitoramento` (
+  `id_monitoramento` int(11) NOT NULL DEFAULT '0',
   `titulo` varchar(500) NOT NULL,
   `dominio_ponte` varchar(500) NOT NULL,
   `dominio_principal` varchar(500) NOT NULL,
   `extencao_arquivo` varchar(10) NOT NULL,
   `periodicidade` float NOT NULL,
   `disponibilidade` int(11) NOT NULL,
-  PRIMARY KEY (`id_dados_a_monitorar`)
+  `cod_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_monitoramento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

@@ -1,3 +1,6 @@
+<?php
+	SESSION_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -22,6 +25,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+		<link href="css/monitor_lab.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -34,9 +38,30 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" data-toggle="modal" data-target="#modal_cadastro">Cadastrar</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" data-toggle="modal" data-target="#modal_login">logar</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contate-nos</a></li>
+						<?php
+							if(!isset($_SESSION["cargo"])){
+								echo'<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" data-toggle="modal" data-target="#modal_cadastro">Cadastrar</a></li>
+								<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" data-toggle="modal" data-target="#modal_login">logar</a></li>
+								<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contate-nos</a></li>';
+							}
+							else{
+								if($_SESSION["cargo"]==1){
+									echo'<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" data-toggle="modal" data-target="#modal_cadastro">Cadastrar usuarios</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="lista_usuarios.php">Lista usuarios</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="cadastro_dados_a_monitorar.php">Cadastrar monitoramento</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="lista_dados_a_monitorar.php">Lista monitoramento</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="monitoramento.php">Monitoramento</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logout.php">Logout</a></li>';
+								}
+								if($_SESSION["cargo"]==2){
+									echo'<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="cadastro_dados_a_monitorar.php">Cadastrar monitoramento</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="lista_dados_a_monitorar.php">Lista monitoramento</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="monitoramento.php">Monitoramento</a></li>
+									<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logout.php">Logout</a></li>';
+								
+								}
+							}
+						?>
                     </ul>
                 </div>
             </div>

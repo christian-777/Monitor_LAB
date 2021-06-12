@@ -4,21 +4,29 @@
     $email=$_POST["email"];
     $senha=$_POST["senha"];
     $senha=md5($senha);
+	if(!isset($_POST["cargo"])){
+		$cargo=2;
+	}
+	else{
+		$cargo=$_POST["cargo"];
+	}
 
-    $insert= "INSERT INTO usuarios(
+    $insert= "INSERT INTO usuario(
                                     nome,
                                     email,
-                                    senha
+                                    senha, 
+									cargo
                                 ) VALUES (
                                     ?,
                                     ?,
-                                    ?
+                                    ?, 
+									?
                                 )";
 
 
 if($stmt = mysqli_prepare($con, $insert)) { 
 
-    mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $senha);
+    mysqli_stmt_bind_param($stmt, "ssss", $nome, $email, $senha, $cargo);
     
     mysqli_stmt_execute($stmt);
   
