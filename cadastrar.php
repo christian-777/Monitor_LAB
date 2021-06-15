@@ -23,9 +23,8 @@
 									?
                                 )";
 
-
 if($stmt = mysqli_prepare($con, $insert)) { 
-
+	echo "$nome, $email, $senha, $cargo";
     mysqli_stmt_bind_param($stmt, "ssss", $nome, $email, $senha, $cargo);
     
     mysqli_stmt_execute($stmt);

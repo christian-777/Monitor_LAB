@@ -16,26 +16,4 @@ $(document).ready(function(){
 		$("#tabela").html(tabela);
 	});
 	
-		var dados= { titulo: $("#titulo").val(),
-					 dominio_ponte: $("#dominio_ponte").val(),
-                     dominio_princial: $("#dominio_princial").val(),
-					 extencao: $("#extencao").val(),
-					 periodicidade: $("#periodicidade").val(),
-					 disponibilidade: $("#disponibilidade").val()
-					};
-					console.log(dados);
-					 
-		if($("#titulo").val()==""  && $("#dominio_ponte").val()=="" && $("#dominio_princial").val()=="" && $("#extencao").val()=="" && $("#periodicidade").val()=="" && $("#disponibilidade").val()==""){
-			$("#mensagem").html("insira os dados corretos!!");
-		}
-		else{
-			$.post("cadastrar_dados.php", dados, function(d){
-			alert("Dados para monitorar cadastrados com sucesso!!!");
-			$("#limpar").click();
-			});
-		}
 });
-
-
-
-83
