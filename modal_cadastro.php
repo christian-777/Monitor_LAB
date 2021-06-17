@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-		<form action="cadastrar.php" method="post">
+		<form>
 			<label for="nome">Nome:</label>
 			<input class="form-control" type="text" name="nome" id="nome" placeholder="Insira seu Nome"/>
 			<br />
@@ -24,7 +24,6 @@
 				</div>
 			</div>
 			<br />
-			<input type="submit" value="teste"/>
 			<div id="mensagem" style="color:red;"></div>
 		</form>
       </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 15-Jun-2021 às 02:07
+-- Data de Criação: 17-Jun-2021 às 03:01
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -46,21 +46,13 @@ CREATE TABLE IF NOT EXISTS `monitoramento` (
   `id_monitoramento` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(500) NOT NULL,
   `dominio_ponte` varchar(500) NOT NULL,
-  `dominio_principal` varchar(500) NOT NULL,
+  `dominio_final` varchar(500) NOT NULL,
   `extensao_arquivo` varchar(10) NOT NULL,
-  `periodicidade` float NOT NULL,
-  `disponibilidade` int(11) NOT NULL,
+  `periodicidade` varchar(100) NOT NULL,
+  `codigo_rash` varchar(32) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_monitoramento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Extraindo dados da tabela `monitoramento`
---
-
-INSERT INTO `monitoramento` (`id_monitoramento`, `titulo`, `dominio_ponte`, `dominio_principal`, `extensao_arquivo`, `periodicidade`, `disponibilidade`, `cod_usuario`) VALUES
-(1, 'dsfbs', 'sdfb', 'sdfb', 'sdfb', 1, 2, 1),
-(2, 'adbsdf', 'sdfb', 'sdfb', 'sdfb', 2, 4, 2);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -76,14 +68,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`nome`, `email`, `senha`, `cargo`, `id_usuario`) VALUES
-('chris', 'Christian.c.g.f777@hotmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 1);
+('chris', 'Christian.c.g.f777@hotmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 1),
+('amanda', 'amanda@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 2),
+('joana', 'joana@email.com', '202cb962ac59075b964b07152d234b70', 2, 3);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
