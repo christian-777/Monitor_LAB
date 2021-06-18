@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 17-Jun-2021 às 03:01
+-- Data de Criação: 18-Jun-2021 às 04:26
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -48,11 +48,18 @@ CREATE TABLE IF NOT EXISTS `monitoramento` (
   `dominio_ponte` varchar(500) NOT NULL,
   `dominio_final` varchar(500) NOT NULL,
   `extensao_arquivo` varchar(10) NOT NULL,
-  `periodicidade` varchar(100) NOT NULL,
+  `periodicidade` int(11) NOT NULL,
   `codigo_rash` varchar(32) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_monitoramento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `monitoramento`
+--
+
+INSERT INTO `monitoramento` (`id_monitoramento`, `titulo`, `dominio_ponte`, `dominio_final`, `extensao_arquivo`, `periodicidade`, `codigo_rash`, `cod_usuario`) VALUES
+(1, 'Fundos de investimento, documentos: informes diarios ', 'http://landpage-h.cgu.gov.br/dadosabertos/index.php?url=http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'csv', 1, 'd41d8cd98f00b204e9800998ecf8427e', 2);
 
 -- --------------------------------------------------------
 

@@ -20,8 +20,8 @@
 			<br />
 			<div class="form-row">
 				<div class="col-5">
-					<label for="dominio_principal">Dominio Principal:</label>
-					<input type="text" name="dominio_principal" id="dominio_principal" class="form-control"/>
+					<label for="dominio_principal">Dominio Final:</label>
+					<input type="text" name="dominio_final" id="dominio_final" class="form-control"/>
 				</div>
 			</div>
 			<br />
@@ -35,14 +35,18 @@
 			<div class="form-row">
 				<div class="col-5">
 					<label for="periodicidade">Periodicidade:</label>
-					<input type="text" name="periodicidade" id="periodicidade" class="form-control"/>
-				</div>
-			</div>
-			<br />
-			<div class="form-row">
-				<div class="col-5">
-					<label for="disponibilidade">Disponibilidade:</label>
-					<input type="text" name="disponibilidade" id="disponibilidade" class="form-control"/>
+					<select id="periodicidade" name="periodicidade" class="form-control form-select">
+						<option value="1">Diario</option>
+						<option value="2">Semanal</option>
+						<option value="3">Quinzenal</option>
+						<option value="4">Mensal</option>
+						<option value="5">Bimestral</option>
+						<option value="6">Trimestral</option>
+						<option value="7">Quadrimestral</option>
+						<option value="8">Semestral</option>
+						<option value="9">Anual</option>
+						<option value="10">Único</option>
+					</select>
 				</div>
 			</div>
 			<br />

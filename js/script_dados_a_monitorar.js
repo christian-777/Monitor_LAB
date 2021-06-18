@@ -11,14 +11,12 @@ $(document).ready(function(){
 	$("#cadastrar_dados").click(function(){
 		var dados= { titulo: $("#titulo").val(),
 					 dominio_ponte: $("#dominio_ponte").val(),
-                     dominio_principal: $("#dominio_principal").val(),
+                     dominio_final: $("#dominio_final").val(),
 					 extensao: $("#extensao").val(),
-					 periodicidade: $("#periodicidade").val(),
-					 disponibilidade: $("#disponibilidade").val()
+					 periodicidade: $("#periodicidade").val()
 					};
-					console.log(dados);
 					 
-		if($("#titulo").val()==""  && $("#dominio_ponte").val()=="" && $("#dominio_principal").val()=="" && $("#extencao").val()=="" && $("#periodicidade").val()=="" && $("#disponibilidade").val()==""){
+		if($("#titulo").val()==""  && $("#dominio_ponte").val()=="" && $("#dominio_final").val()=="" && $("#extencao").val()=="" && $("#periodicidade").val()=="" && $("#disponibilidade").val()==""){
 			$("#mensagem").html("insira os dados corretos!!");
 		}
 		else{

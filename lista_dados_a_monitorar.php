@@ -8,10 +8,11 @@
 			  <th scope="col">ID dados</th>
 			  <th scope="col">Titulo</th>
 			  <th scope="col">Dominio ponte</th>
-			  <th scope="col">Dominio principal</th>
+			  <th scope="col">Dominio final</th>
 			  <th scope="col">Extensão do Arquivo</th>
 			  <th scope="col">Periodicidade</th>
-			  <th scope="col">Disponibilidade</th>
+			  <th scope="col">Codigo rash</th>
+			  <th scope="col">Status</th>
 			</tr>
 		</thead>
 		<tbody id="tabela">
