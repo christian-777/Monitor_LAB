@@ -16,7 +16,7 @@
         <script src="js/md5.js"></script>
 		<script src="js/scripts.js"></script>
 		<script src="js/script_dados_a_monitorar.js"></script>
-		<script src="js/script_lista_dados_a_monitorar.js"></script>
+		
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->

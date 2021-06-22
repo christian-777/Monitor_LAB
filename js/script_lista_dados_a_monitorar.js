@@ -7,10 +7,18 @@
 // Scripts
 // 
 $(document).ready(function(){
-	
+	var dados=0;
 	function update_monitoramento(id){
-		$.post("update_monitoramento.php", id, function(){
-			alert("atualixação feita com sucesso!!!");
+		$.post("dados_monitoramento.php", {"id":id}, function(r){
+			$.each(r, function(i,v){
+				dados= {id_monitoramento: v.id_monitoramento,
+						titulo: v.titulo,
+						dominio_final: v.dominio_final,
+						extensao:v.extensao_arquivo};
+			});
+			$.post("update_monitoramento.php", dados, function(t){
+				alert("atualização feita com sucesso!!!");
+			});
 		});
 	}
 	var status_final=0;
@@ -20,8 +28,6 @@ $(document).ready(function(){
 			var status=v[0];
 			
 			$.post("converte_arquivo.php", {"url":status.dominio_final},function(e){
-				console.log(e);
-				console.log(status.codigo_rash);
 				var md5_url=e;
 				if(md5_url==status.codigo_rash){
 					status_final="Normal";
@@ -29,7 +35,8 @@ $(document).ready(function(){
 				
 				if(md5_url!=status.codigo_rash){
 					status_final="alterado";
-					console.log("++");
+					console.log(md5_url);
+					console.log(status.codigo_rash);
 					update_monitoramento(a);
 				}
 				

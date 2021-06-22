@@ -21,6 +21,7 @@
 		</tbody>
 	</table>
 	</div>
+	<script src="js/script_lista_dados_a_monitorar.js"></script>
 <?php
 	include "rodape.php";
 ?>

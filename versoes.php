@@ -2,7 +2,7 @@
 	include "cabecalho.php";
 ?>
 	<div class="masthead container">
-	<table class="text-center table table-dark table-bordered table-responsive">
+	<table class="text-center table table-dark table-bordered table-responsive-lg">
 		<thead>
 			<tr>
 			  <th scope="col">Código do monitoramento</th>
