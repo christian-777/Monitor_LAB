@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 18-Jun-2021 às 04:26
+-- Data de Criação: 22-Jun-2021 às 01:56
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -85,6 +85,34 @@ INSERT INTO `usuario` (`nome`, `email`, `senha`, `cargo`, `id_usuario`) VALUES
 ('chris', 'Christian.c.g.f777@hotmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 1),
 ('amanda', 'amanda@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 2),
 ('joana', 'joana@email.com', '202cb962ac59075b964b07152d234b70', 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `versoes`
+--
+
+CREATE TABLE IF NOT EXISTS `versoes` (
+  `id_versoes` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_monitoramento` int(11) NOT NULL,
+  `titulo` varchar(300) NOT NULL,
+  `dominio_final` varchar(300) NOT NULL,
+  `extensao_arquivo` varchar(300) NOT NULL,
+  `data` varchar(300) NOT NULL,
+  `conteudo` longtext NOT NULL,
+  PRIMARY KEY (`id_versoes`),
+  UNIQUE KEY `cod_monitoramento` (`cod_monitoramento`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `versoes`
+--
+ALTER TABLE `versoes`
+  ADD CONSTRAINT `versoes_ibfk_1` FOREIGN KEY (`cod_monitoramento`) REFERENCES `monitoramento` (`id_monitoramento`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
