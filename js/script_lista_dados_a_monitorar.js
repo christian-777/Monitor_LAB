@@ -17,7 +17,8 @@ $(document).ready(function(){
 						extensao:v.extensao_arquivo};
 			});
 			$.post("update_monitoramento.php", dados, function(t){
-				alert("atualização feita com sucesso!!!");
+				alert("atualização feita com sucesso!!!"); //mudar para div 
+				console.log(t);
 			});
 		});
 	}

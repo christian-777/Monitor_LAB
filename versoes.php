@@ -15,18 +15,58 @@
 			</tr>
 		</thead>
 		<tbody id="tabela_versoes">
+			<?php
+		//header("Content-Type: application/json");
+		include "conexao.php";
+		$select="SELECT cod_monitoramento, titulo, dominio_final, extensao_arquivo, data, conteudo FROM versoes WHERE cod_monitoramento='$id'";
+		die($select);
+		$res = mysqli_query($con, $select) or die(mysqli_error($con));
+		while($linha=mysqli_fetch_assoc($res)){
+			//$resultado[]= $linha;
+		//}
+		//$resultado= json_encode($resultado);
+		//$resultado= json_decode($resultado);
+		
+		//foreach($resultado as $colunas){
+			$mais='<div class="accordion" id="accordionExample">
+	  <div class="accordion-item">
+		<h2 class="accordion-header" id="headingOne">
+		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			'.$linha["titulo"].'
+		  </button>
+		</h2>
+		<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+		  <div class="accordion-body">
+			'.$linha["conteudo"].'
+		  </div>
+		</div>
+	  </div>
+	</div>';
+		echo "<tr>
+				<td>".$linha["cod_monitoramento"]."</td>
+				<td>".$linha["titulo"]."</td>
+				<td>".$linha["dominio_final"]."</td>
+				<td>".$linha["extensao_arquivo"]."</td>
+				<td>".$linha["data"]."</td>
+				<td>$mais</td>
+			</tr>";
+		}
+	?>
 		</tbody>
 	</table>
 	<br />
 	</div>
 	<br />
 	<div id="div" <?php echo"value=\"$id\"";?>></div>
-	<script src="js/script_versoes.js"></script>
+	<!--<script src="js/script_versoes.js"></script>-->
 	
-	<!-- https://getbootstrap.com/docs/5.0/components/accordion/-->
+	<!-- https://getbootstrap.com/docs/5.0/components/accordion/
+	-->
 	
+	//tentar descobrir com php qual a codificação do conteudo do arquivo esta reetornando do file_get_content se é utf-8 ou iso8859
+	resolver collapse
 	
-	<div class="accordion" id="accordionExample">
+	<!--<div class="accordion" id="accordionExample">
 	  <div class="accordion-item">
 		<h2 class="accordion-header" id="headingOne">
 		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -39,7 +79,7 @@
 		  </div>
 		</div>
 	  </div>
-	</div>
+	</div>-->
 
 <?php
 	include "rodape.php";
