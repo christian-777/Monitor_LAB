@@ -14,7 +14,8 @@ $(document).ready(function(){
 				dados= {id_monitoramento: v.id_monitoramento,
 						titulo: v.titulo,
 						dominio_final: v.dominio_final,
-						extensao:v.extensao_arquivo};
+						extensao:v.extensao_arquivo,
+						codificacao:v.codificacao};
 			});
 			$.post("update_monitoramento.php", dados, function(t){
 				alert("atualização feita com sucesso!!!"); //mudar para div 
@@ -55,7 +56,7 @@ $(document).ready(function(){
 		var tabela="";
 		console.log("teste");
 		$.each(v, function(indice, valor){
-            tabela+="<tr><td>"+valor.id_monitoramento+"</td><td>"+valor.titulo+"</td><td>"+valor.dominio_ponte+"</td><td>"+valor.dominio_final+"</td><td>"+valor.extensao_arquivo+"</td><td>"+valor.periodicidade+"</td><td>"+valor.codigo_rash+"</td><td id='status"+valor.id_monitoramento+"'></td><td><a href='versoes.php?id="+valor.id_monitoramento+"'>Visualizar versões anteriores</a></td></tr>";
+            tabela+="<tr><td>"+valor.id_monitoramento+"</td><td>"+valor.titulo+"</td><td>"+valor.dominio_ponte+"</td><td>"+valor.dominio_final+"</td><td>"+valor.extensao_arquivo+"</td><td>"+valor.periodicidade+"</td><td>"+valor.codigo_rash+"</td><td id='status"+valor.id_monitoramento+"'></td><td id='cosificacao"+valor.codificacao+"'></td><td><a href='versoes.php?id="+valor.id_monitoramento+"'>Visualizar versões anteriores</a></td></tr>";
         });
 		$("#tabela").html(tabela);
 		$.each(v, function(indice, valor){

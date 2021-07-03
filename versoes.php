@@ -11,6 +11,7 @@
 			  <th scope="col">Dominio final</th>
 			  <th scope="col">Extensão do Arquivo</th>
 			  <th scope="col">Data de modificação</th>
+			  <th scope="col">Codificação</th>
 			  <th scope="col">Conteudo</th>
 			</tr>
 		</thead>
@@ -18,38 +19,34 @@
 			<?php
 		//header("Content-Type: application/json");
 		include "conexao.php";
-		$select="SELECT cod_monitoramento, titulo, dominio_final, extensao_arquivo, data, conteudo FROM versoes WHERE cod_monitoramento='$id'";
-		die($select);
+		$select="SELECT cod_monitoramento, titulo, dominio_final, extensao_arquivo, data, conteudo, codificacao FROM versoes WHERE cod_monitoramento='$id'";
 		$res = mysqli_query($con, $select) or die(mysqli_error($con));
+		$cont=0;
 		while($linha=mysqli_fetch_assoc($res)){
-			//$resultado[]= $linha;
-		//}
-		//$resultado= json_encode($resultado);
-		//$resultado= json_decode($resultado);
-		
-		//foreach($resultado as $colunas){
-			$mais='<div class="accordion" id="accordionExample">
-	  <div class="accordion-item">
-		<h2 class="accordion-header" id="headingOne">
-		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			'.$linha["titulo"].'
-		  </button>
-		</h2>
-		<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-		  <div class="accordion-body">
-			'.$linha["conteudo"].'
-		  </div>
-		</div>
-	  </div>
-	</div>';
+			
+			$mais='<div class="text-dark">
+				<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample'.$cont.'" role="button" aria-expanded="false" aria-controls="collapseExample'.$cont.'">
+					'.$linha["titulo"].'
+				</a>
+				</p>
+				<div class="collapse" id="collapseExample'.$cont.'">
+					<div class="card card-body">
+						'.$linha["conteudo"].'
+					</div>
+				</div>
+			</div>';
+			
+			
 		echo "<tr>
 				<td>".$linha["cod_monitoramento"]."</td>
 				<td>".$linha["titulo"]."</td>
 				<td>".$linha["dominio_final"]."</td>
 				<td>".$linha["extensao_arquivo"]."</td>
 				<td>".$linha["data"]."</td>
+				<td>".$linha["codificacao"]."</td>
 				<td>$mais</td>
 			</tr>";
+			$cont++;
 		}
 	?>
 		</tbody>
@@ -62,9 +59,7 @@
 	
 	<!-- https://getbootstrap.com/docs/5.0/components/accordion/
 	-->
-	
-	//tentar descobrir com php qual a codificação do conteudo do arquivo esta reetornando do file_get_content se é utf-8 ou iso8859
-	resolver collapse
+
 	
 	<!--<div class="accordion" id="accordionExample">
 	  <div class="accordion-item">

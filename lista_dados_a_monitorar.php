@@ -13,6 +13,7 @@
 			  <th scope="col">Periodicidade</th>
 			  <th scope="col">Codigo rash</th>
 			  <th scope="col">Status</th>
+			  <th scope="col">Codificação</th>
 			  <th scope="col">Versões</th>
 			</tr>
 		</thead>
