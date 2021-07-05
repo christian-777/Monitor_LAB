@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 22-Jun-2021 às 01:56
+-- Data de Criação: 05-Jul-2021 às 19:28
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -50,16 +50,19 @@ CREATE TABLE IF NOT EXISTS `monitoramento` (
   `extensao_arquivo` varchar(10) NOT NULL,
   `periodicidade` int(11) NOT NULL,
   `codigo_rash` varchar(32) NOT NULL,
+  `codificacao` varchar(300) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_monitoramento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `monitoramento`
 --
 
-INSERT INTO `monitoramento` (`id_monitoramento`, `titulo`, `dominio_ponte`, `dominio_final`, `extensao_arquivo`, `periodicidade`, `codigo_rash`, `cod_usuario`) VALUES
-(1, 'Fundos de investimento, documentos: informes diarios ', 'http://landpage-h.cgu.gov.br/dadosabertos/index.php?url=http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'csv', 1, 'd41d8cd98f00b204e9800998ecf8427e', 2);
+INSERT INTO `monitoramento` (`id_monitoramento`, `titulo`, `dominio_ponte`, `dominio_final`, `extensao_arquivo`, `periodicidade`, `codigo_rash`, `codificacao`, `cod_usuario`) VALUES
+(1, 'Fundos de investimento, documentos: informes diarios ', 'http://landpage-h.cgu.gov.br/dadosabertos/index.php?url=http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'csv', 1, 'bc055bead7c83810800956cd481974fe', '', 2),
+(2, 'Teste - Beluzo', 'http://beluzo.com.br', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', 1, '81a8d1a598ec28d07218e9694414c8f8', '', 2),
+(3, 'teste php', 'localhost:8081', 'http://localhost:8081/monitor_lab/teste.php', 'php', 1, 'd41d8cd98f00b204e9800998ecf8427e', '', 2);
 
 -- --------------------------------------------------------
 
@@ -100,9 +103,24 @@ CREATE TABLE IF NOT EXISTS `versoes` (
   `extensao_arquivo` varchar(300) NOT NULL,
   `data` varchar(300) NOT NULL,
   `conteudo` longtext NOT NULL,
+  `codificacao` varchar(300) NOT NULL,
   PRIMARY KEY (`id_versoes`),
-  UNIQUE KEY `cod_monitoramento` (`cod_monitoramento`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `cod_monitoramento` (`cod_monitoramento`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+--
+-- Extraindo dados da tabela `versoes`
+--
+
+INSERT INTO `versoes` (`id_versoes`, `cod_monitoramento`, `titulo`, `dominio_final`, `extensao_arquivo`, `data`, `conteudo`, `codificacao`) VALUES
+(10, 1, 'Fundos de investimento, documentos: informes diarios ', 'http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/META/meta_inf_diario_fi.txt', 'csv', '22-06-2021', '-----------------------\r\nCampo: CAPTC_DIA\r\n-----------------------\r\n   Descri??o : Capta??o do dia\r\n   Dom?nio   : Num?rico\r\n   Tipo Dados: numeric\r\n   Precis?o  : 17\r\n   Scale     : 2\r\n\r\n-----------------------\r\nCampo: CNPJ_FUNDO\r\n-----------------------\r\n   Descri??o : CNPJ do fundo\r\n   Dom?nio   : Alfanum?rico\r\n   Tipo Dados: varchar\r\n   Tamanho   : 20\r\n\r\n-----------------------\r\nCampo: DT_COMPTC\r\n-----------------------\r\n   Descri??o : Data de compet?ncia do documento\r\n   Dom?nio   : AAAA-MM-DD\r\n   Tipo Dados: date\r\n   Tamanho   : 10\r\n\r\n-----------------------\r\nCampo: NR_COTST\r\n-----------------------\r\n   Descri??o : N?mero de cotistas\r\n   Dom?nio   : Num?rico\r\n   Tipo Dados: int\r\n   Precis?o  : 10\r\n   Scale     : 0\r\n\r\n-----------------------\r\nCampo: RESG_DIA\r\n-----------------------\r\n   Descri??o : Resgate no dia\r\n   Dom?nio   : Num?rico\r\n   Tipo Dados: numeric\r\n   Precis?o  : 17\r\n   Scale     : 2\r\n\r\n-----------------------\r\nCampo: TP_FUNDO\r\n-----------------------\r\n   Descri??o : Tipo de fundo\r\n   Dom?nio   : Alfanum?rico\r\n   Tipo Dados: varchar\r\n   Tamanho   : 15\r\n\r\n-----------------------\r\nCampo: VL_PATRIM_LIQ\r\n-----------------------\r\n   Descri??o : Valor do patrim?nio l?quido\r\n   Dom?nio   : Num?rico\r\n   Tipo Dados: numeric\r\n   Precis?o  : 17\r\n   Scale     : 2\r\n\r\n-----------------------\r\nCampo: VL_QUOTA\r\n-----------------------\r\n   Descri??o : Valor da cota\r\n   Dom?nio   : Num?rico\r\n   Tipo Dados: numeric\r\n   Precis?o  : 27\r\n   Scale     : 12\r\n\r\n-----------------------\r\nCampo: VL_TOTAL\r\n-----------------------\r\n   Descri??o : Valor total da carteira\r\n   Dom?nio   : Num?rico\r\n   Tipo Dados: numeric\r\n   Precis?o  : 17\r\n   Scale     : 2\r\n\r\n', ''),
+(11, 2, 'Teste - Beluzo', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', '24/06/2021', 'Teste beluzo;teste X; teste Z', ''),
+(18, 2, 'Teste - Beluzo', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', '24/06/2021', 'Teste beluzo;teste X; teste a', ''),
+(19, 2, 'Teste - Beluzo', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', '24/06/2021', 'Teste beluzo;teste X; teste b', ''),
+(20, 2, 'Teste - Beluzo', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', '24/06/2021', 'Teste beluzo;teste X; teste g', ''),
+(21, 2, 'Teste - Beluzo', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', '24/06/2021', 'Teste beluzo;teste X; teste l', ''),
+(22, 2, 'Teste - Beluzo', 'http://beluzo.com.br/api/teste_monitor.php', 'csv', '24/06/2021', 'Teste beluzo;teste X; teste m', ''),
+(23, 3, 'teste php', 'http://localhost:8081/monitor_lab/teste.php', 'php', '29/06/2021 - 18:36:10', '', '');
 
 --
 -- Constraints for dumped tables
@@ -112,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `versoes` (
 -- Limitadores para a tabela `versoes`
 --
 ALTER TABLE `versoes`
-  ADD CONSTRAINT `versoes_ibfk_1` FOREIGN KEY (`cod_monitoramento`) REFERENCES `monitoramento` (`id_monitoramento`);
+  ADD CONSTRAINT `versoes_ibfk_1` FOREIGN KEY (`cod_monitoramento`) REFERENCES `monitoramento` (`id_monitoramento`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
