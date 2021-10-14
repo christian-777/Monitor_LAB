@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `monitoramento` (
   `codificacao` varchar(300) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_monitoramento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Extraindo dados da tabela `monitoramento`
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `versoes` (
   `codificacao` varchar(300) NOT NULL,
   PRIMARY KEY (`id_versoes`),
   KEY `cod_monitoramento` (`cod_monitoramento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Extraindo dados da tabela `versoes`

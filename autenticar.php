@@ -49,6 +49,7 @@
             $l = mysqli_fetch_assoc($resultado);
 	
 			$_SESSION["cargo"]=2;
+			$_SESSION["id_usuario"]=$l["id_usuario"];
 	
             echo 1;
         }

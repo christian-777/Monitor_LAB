@@ -8,12 +8,12 @@
 	$periodicidade=$_POST["periodicidade"];
 	$file_content=file_get_contents($dominio_final);
 	$codigo_rash=md5($file_content);
-	$codificacao=mb_detect_encoding($file_contest, [ 'UTF-8', 'ISO-8859-1']);
+	$codificacao=mb_detect_encoding($file_contest, ['UTF-8', 'ISO-8859-1']);
 	if($_SESSION["cargo"]==1){
 		$cod_usuario=-1;
 	}
 	else{
-		$cod_usuario=2;
+		$cod_usuario=$_SESSION["id_usuario"];
 	}
 
     $insert= "INSERT INTO monitoramento(

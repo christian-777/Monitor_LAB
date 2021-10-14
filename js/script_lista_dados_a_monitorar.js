@@ -31,13 +31,15 @@ $(document).ready(function(){
 			
 			$.post("converte_arquivo.php", {"url":status.dominio_final},function(e){
 				var md5_url=e;
+				console.log(md5_url);
 				if(md5_url=="Indisponivel"){
 					$.post("verifica_dominio_ponte.php",{"url":status.dominio_ponte}, function(m){
 						if(m=="false"){
-							$("#status"+a).html("Dominio Final esta fora do ar");
+							$("#status"+a).html("Dominio Ponte esta fora do ar");
+							
 						}
 						else{
-							$("#status"+a).html("Dominio Ponte esta fora do ar");
+							$("#status"+a).html("Dominio Final esta fora do ar");
 						}
 					});
 				}
@@ -68,7 +70,8 @@ $(document).ready(function(){
 		var tabela="";
 		console.log("teste");
 		$.each(v, function(indice, valor){
-            tabela+="<tr><td>"+valor.id_monitoramento+"</td><td>"+valor.titulo+"</td><td>"+valor.dominio_ponte+"</td><td>"+valor.dominio_final+"</td><td>"+valor.extensao_arquivo+"</td><td>"+valor.periodicidade+"</td><td>"+valor.codigo_rash+"</td><td id='status"+valor.id_monitoramento+"'></td><td id='codificacao"+valor.codificacao+"'></td><td><a href='versoes.php?id="+valor.id_monitoramento+"'>Visualizar versões anteriores</a></td></tr>";
+			console.log("t"+valor.codificacao);
+            tabela+="<tr><td>"+valor.id_monitoramento+"</td><td>"+valor.titulo+"</td><td>"+valor.dominio_ponte+"</td><td>"+valor.dominio_final+"</td><td>"+valor.extensao_arquivo+"</td><td>"+valor.periodicidade+"</td><td>"+valor.codigo_rash+"</td><td id='status"+valor.id_monitoramento+"'></td><td id='codificacao'>"+valor.codificacao+"</td><td><a href='versoes.php?id="+valor.id_monitoramento+"'>Visualizar versões anteriores</a></td></tr>";
         });
 		$("#tabela").html(tabela);
 		$.each(v, function(indice, valor){
